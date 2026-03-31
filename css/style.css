@@ -1,7 +1,39 @@
 @import url(reset.css);
 @import url(common.css);
 
+/* 공통 이미지 스타일 (꽉 차게) */
 .section_1 img {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* 1. 기본 상태 (PC 화면) */
+.pc_only {
+  display: block; /* PC 섹션은 보임 */
+  width: 100%;
   height: 100vh;
+}
+
+.mobile_only {
+  display: none; /* 모바일 섹션은 숨김 */
+}
+
+/* 2. 반응형: 767px 이하 (모바일 화면) */
+@media screen and (max-width: 767px) {
+  .pc_only {
+    display: none; /* PC 섹션 숨김 */
+  }
+
+  .mobile_only {
+    display: block; /* 모바일 섹션 보임 */
+    width: 100%;
+    height: 100dvh; /* 주소창 대응 높이 */
+    overflow: hidden; /* 삐져나온 이미지 가리기 */
+  }
+
+  .mobile_only img {
+    height: 100dvh;
+  }
 }
